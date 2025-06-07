@@ -1,7 +1,7 @@
 version: '3'
 services:
   mood2anime:
-    image: max0x15/mood2anime
+    image: {{ docker_image }}
     restart: always
     environment:
       - DJANGO_DEBUG=False
