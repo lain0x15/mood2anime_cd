@@ -7,5 +7,10 @@ services:
       - DJANGO_DEBUG=False
       - DJANGO_CSRF_TRUSTED_ORIGINS={{DJANGO_CSRF_TRUSTED_ORIGINS}}
       - DJANGO_WEBSITE_DNS_NAME={{DJANGO_WEBSITE_DNS_NAME}}
-    ports:
-      - 8080:8080
+    volumes:
+      - static-content:/mood2anime/staticRoot
+      - media-content:/mood2anime/media
+      - ./includes:/mood2anime/templates/includes
+volumes:
+  static-content:
+  media-content:
