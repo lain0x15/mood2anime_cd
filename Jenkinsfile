@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        sh "${params.ip_vm}"
+        sh "echo ${params.ip_vm}"
       }
     }
   }
