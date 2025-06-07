@@ -10,7 +10,7 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        withCredentials([usernamePassword(credentialsId: "${params.name_ssh_secret}", usernameVariable : 'ssh_username', keyFileVariable: 'ssh_key' )]) {
+        withCredentials([sshUserPrivateKey(credentialsId: "${params.name_ssh_secret}", usernameVariable : 'ssh_username', keyFileVariable: 'ssh_key' )]) {
               sh 'echo $ssh_username'
         }
       }
