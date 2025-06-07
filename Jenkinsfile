@@ -16,7 +16,7 @@ pipeline {
           ansiblePlaybook(credentialsId: "${params.name_ssh_secret}",
             playbook: 'ansible/main.yml',
             inventory: '${ip_vm},',
-            extras: '--user ${ssh_username}'
+            extras: "--user ${ssh_username}"
           )
         }
       }
