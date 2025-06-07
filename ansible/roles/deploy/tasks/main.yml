@@ -1,5 +1,11 @@
 ---
 - name: Create folder mood2anime
   ansible.builtin.file:
-    path: "./mood2anime"
+    path: "./mood2anime2"
+    mode: 0750
     state: directory
+- name: copy docker-compose.yml
+  ansible.builtin.copy:
+    src: "files/docker-compose.yml"
+    dest: "./mood2anime2/docker-compose.yml"
+    mode: 0750
