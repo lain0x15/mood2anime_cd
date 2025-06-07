@@ -3,6 +3,7 @@ pipeline {
   parameters {
     string(name: 'ip_vm', defaultValue: '109.107.189.205', description: 'ip address vm')
     string(name: 'name_ssh_secret', defaultValue: 'ssh_mood2anime_cd', description: 'ssh secret for vm auth')
+    string(name: 'tag_docker_image', defaultValue: 'max0x15/mood2anime:latest', description: 'mood2anime image tag')
   }
   options {
     disableConcurrentBuilds()
@@ -11,9 +12,9 @@ pipeline {
     stage('test') {
       steps {
         withCredentials([sshUserPrivateKey(credentialsId: "${params.name_ssh_secret}", usernameVariable : 'ssh_username', keyFileVariable: 'ssh_key', passphraseVariable: 'ssh_key_passphrase' )]) {
-              sh 'echo $ssh_username'
-              sh 'echo $ssh_key_passphrase'
-              sh 'echo $ssh_key'
+          sh 'echo $ssh_username'
+          sh 'echo $ssh_key_passphrase'
+          sh 'echo $ssh_key'
         }
       }
     }
