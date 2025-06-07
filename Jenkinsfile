@@ -14,7 +14,7 @@ pipeline {
       steps {
         ansiblePlaybook(credentialsId: "${params.name_ssh_secret}",
           playbook: 'ansible/main.yml',
-          inventory: '${params.ip_vm},',
+          inventory: '${ip_vm},',
           extras: "-e DJANGO_CSRF_TRUSTED_ORIGINS='https://${params.dns_name_web_site}'"
         )
       }
