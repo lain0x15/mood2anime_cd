@@ -1,5 +1,5 @@
 ---
 - name: Create folder mood2anime
   ansible.builtin.file:
-    path: "{{ HOME }}/mood2anime"
+    path: "lookup('env','HOME')/mood2anime"
     state: directory
