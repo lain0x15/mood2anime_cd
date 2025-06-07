@@ -13,9 +13,7 @@ pipeline {
     stage('test') {
       steps {
         withCredentials([sshUserPrivateKey(credentialsId: "${params.name_ssh_secret}", usernameVariable : 'ssh_username', keyFileVariable: 'ssh_key', passphraseVariable: 'ssh_key_passphrase' )]) {
-          sh 'echo $ssh_username'
-          sh 'echo $ssh_key_passphrase'
-          sh 'echo $ssh_key'
+          sh "ansible-playbook ansible/main.yml -i ${params.ip_vm},"
         }
       }
     }

@@ -1,0 +1,5 @@
+---
+- name: common settings
+  hosts: all
+  roles:
+    - deploy
