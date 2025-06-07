@@ -3,5 +3,9 @@ services:
   mood2anime:
     image: max0x15/mood2anime
     restart: always
+    environment:
+      - DJANGO_DEBUG=False
+      - DJANGO_CSRF_TRUSTED_ORIGINS=https://mood2anime.lain0x15.tech
+      - DJANGO_WEBSITE_DNS_NAME=mood2anime.lain0x15.tech
     ports:
       - 8080:8080
