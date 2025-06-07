@@ -1,6 +1,8 @@
 pipeline {
   agent any
-  parameters {}
+  parameters {
+    string(name: 'name_ssh_secret', defaultValue: 'ssh_mood2anime_cd', description: 'ssh secret for vm auth')
+  }
   options {
     disableConcurrentBuilds()
   }
