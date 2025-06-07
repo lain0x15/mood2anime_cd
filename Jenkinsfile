@@ -12,9 +12,12 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        ansiblePlaybook(credentialsId: '${params.name_ssh_secret}', playbook: 'ansible/main.yml', inventory: '${ip_vm},')
-        withCredentials([sshUserPrivateKey(credentialsId: "${params.name_ssh_secret}", usernameVariable : 'ssh_username', keyFileVariable: 'ssh_key', passphraseVariable: 'ssh_key_passphrase' )]) {
-            sh "echo 123"
+        withCredentials([sshUserPrivateKey(credentialsId: "${params.name_ssh_secret}", usernameVariable : 'ssh_username')]) {
+          ansiblePlaybook(credentialsId: '${params.name_ssh_secret}',
+            playbook: 'ansible/main.yml',
+            inventory: '${ip_vm},',
+            extraVars: '-e username=${ssh_username}'
+          )
         }
       }
     }
