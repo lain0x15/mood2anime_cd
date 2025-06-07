@@ -15,7 +15,7 @@ pipeline {
         ansiblePlaybook(credentialsId: "${params.name_ssh_secret}",
           playbook: 'ansible/main.yml',
           inventory: '${ip_vm},',
-          extras: "-e DJANGO_CSRF_TRUSTED_ORIGINS='https://${params.dns_name_web_site}' -e DJANGO_WEBSITE_DNS_NAME='${params.dns_name_web_site}' -e docker_image='${docker_image}'"
+          extras: "-e DJANGO_CSRF_TRUSTED_ORIGINS='https://${params.dns_name_web_site}' -e DJANGO_WEBSITE_DNS_NAME='${params.dns_name_web_site}' -e docker_image='${params.docker_image}'"
         )
       }
     }
