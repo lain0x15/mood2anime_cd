@@ -3,41 +3,5 @@ services:
   mood2anime:
     image: max0x15/mood2anime
     restart: always
-    environment:
-      - DJANGO_DEBUG=False
-      - DJANGO_CSRF_TRUSTED_ORIGINS=https://mood2anime.lain0x15.tech
-      - DJANGO_WEBSITE_DNS_NAME=mood2anime.lain0x15.tech
-    volumes:
-      - static-content:/mood2anime/staticRoot
-      - media-content:/mood2anime/media
-      - ./includes:/mood2anime/templates/includes
-  nginx:
-    image: nginx
-    restart: always
-    user: "${UID}"
     ports:
-      - 80:80
-      - 443:443
-    volumes:
-      - ./nginx/conf.d/:/etc/nginx/conf.d:ro
-      - static-content:/staticRoot
-      - media-content:/mediaRoot
-      - certbotwww:/certbot/www
-      - certbotcerts:/certbotCerts
-  certbot:
-    image: certbot/certbot:latest
-    entrypoint:
-      - /bin/sh
-    command:
-      - /getCert.sh
-      - mood2anime.lain0x15.tech
-      - max0x15@outlook.com
-    volumes:
-      - certbotwww:/certbot/www
-      - certbotcerts:/etc/letsencrypt
-      - ./getCert.sh:/getCert.sh:ro
-volumes:
-  static-content:
-  media-content:
-  certbotwww:
-  certbotcerts:
+      - 8080:8080
