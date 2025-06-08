@@ -13,6 +13,8 @@ services:
       - media-content:/mood2anime/media
       - ./includes:/mood2anime/templates/includes:ro
       - ./mood2anime_db:/mood2anime_DB:ro
+    tmpfs:
+      - /mood2anime/sqlite:mode=750,uid=101,gid=101,size=10485760
   nginx:
     image: nginx:latest
     restart: always
