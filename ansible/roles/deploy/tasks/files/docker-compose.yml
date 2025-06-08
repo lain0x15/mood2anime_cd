@@ -3,6 +3,7 @@ services:
   mood2anime:
     image: {{ docker_image }}
     restart: always
+    user: "${UID}"
     environment:
       - DJANGO_DEBUG=False
       - DJANGO_CSRF_TRUSTED_ORIGINS={{DJANGO_CSRF_TRUSTED_ORIGINS}}
@@ -11,6 +12,16 @@ services:
       - static-content:/mood2anime/staticRoot
       - media-content:/mood2anime/media
       - ./includes:/mood2anime/templates/includes
+  nginx:
+    image: nginx
+    restart: always
+    user: "${UID}"
+    ports:
+      - 8080:80
+      - 4443:443
+    volumes:
+      - static-content:/staticRoot
+      - media-content:/mediaRoot
 volumes:
   static-content:
   media-content:
