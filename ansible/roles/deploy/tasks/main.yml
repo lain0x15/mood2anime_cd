@@ -27,5 +27,5 @@
 - name: Template mood2anime.conf
   ansible.builtin.template:
     src: "files/mood2anime.conf"
-    dest: "./mood2anime2/nginx/conf.d/mood2anime.confl"
+    dest: "./mood2anime2/nginx/conf.d/mood2anime.conf"
     mode: 0750
