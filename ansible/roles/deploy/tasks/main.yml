@@ -14,7 +14,7 @@
     path: "./mood2anime2/includes"
     mode: 0750
     state: directory
-- name: Template docker-compose.yml
+- name: Template metrics.html
   ansible.builtin.template:
     src: "files/metrics.html"
     dest: "./mood2anime2/includes/metrics.html"
@@ -24,3 +24,8 @@
     path: "./mood2anime2/nginx/conf.d"
     mode: 0750
     state: directory
+- name: Template mood2anime.conf
+  ansible.builtin.template:
+    src: "files/mood2anime.conf"
+    dest: "./mood2anime2/nginx/conf.d/mood2anime.confl"
+    mode: 0750
