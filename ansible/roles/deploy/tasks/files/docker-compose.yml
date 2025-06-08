@@ -25,7 +25,7 @@ services:
       - media-content:/mediaRoot:ro
       - ./nginx/conf.d/:/etc/nginx/conf.d:ro
       - certbotwww:/certbot/www
-      - certbotcerts:/certbotCerts
+      - ./mood2anime2/certbotcerts:/certbotCerts
   certbot:
     image: certbot/certbot:latest
     entrypoint:
