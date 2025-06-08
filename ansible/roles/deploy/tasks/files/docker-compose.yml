@@ -22,6 +22,7 @@ services:
     volumes:
       - static-content:/staticRoot
       - media-content:/mediaRoot
+      - ./nginx/conf.d/:/etc/nginx/conf.d:ro
 volumes:
   static-content:
   media-content:
