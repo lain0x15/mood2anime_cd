@@ -39,3 +39,8 @@
     src: "files/getCert.sh"
     dest: "./mood2anime2/getCert.sh"
     mode: 0750
+- name: Create folder mood2anime
+  ansible.builtin.file:
+    path: "./mood2anime2/certbotcerts"
+    mode: 0755
+    state: directory

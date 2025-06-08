@@ -35,10 +35,9 @@ services:
       - {{DJANGO_WEBSITE_DNS_NAME}}
     volumes:
       - certbotwww:/certbot/www
-      - certbotcerts:/etc/letsencrypt
+      - ./mood2anime2/certbotcerts:/etc/letsencrypt
       - ./getCert.sh:/getCert.sh:ro
 volumes:
   static-content:
   media-content:
   certbotwww:
-  certbotcerts:
