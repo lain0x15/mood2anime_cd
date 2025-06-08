@@ -42,5 +42,5 @@
 - name: Create folder mood2anime
   ansible.builtin.file:
     path: "./mood2anime2/certbotcerts"
-    mode: 1777
+    mode: 01775
     state: directory
