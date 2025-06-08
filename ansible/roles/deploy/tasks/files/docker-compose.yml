@@ -14,7 +14,7 @@ services:
       - ./includes:/mood2anime/templates/includes:ro
       - ./mood2anime_db:/mood2anime_DB:ro
   nginx:
-    image: nginx
+    image: nginx:latest
     restart: always
     user: "${UID}"
     ports:
@@ -24,6 +24,21 @@ services:
       - static-content:/staticRoot:ro
       - media-content:/mediaRoot:ro
       - ./nginx/conf.d/:/etc/nginx/conf.d:ro
+      - certbotwww:/certbot/www
+      - certbotcerts:/certbotCerts
+  certbot:
+    image: certbot/certbot:latest
+    entrypoint:
+      - /bin/sh
+    command:
+      - /getCert.sh
+      - {{DJANGO_WEBSITE_DNS_NAME}}
+    volumes:
+      - certbotwww:/certbot/www
+      - certbotcerts:/etc/letsencrypt
+      - ./getCert.sh:/getCert.sh:ro
 volumes:
   static-content:
   media-content:
+  certbotwww:
+  certbotcerts:
