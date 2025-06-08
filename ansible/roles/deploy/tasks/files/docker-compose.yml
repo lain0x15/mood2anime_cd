@@ -11,7 +11,7 @@ services:
     volumes:
       - static-content:/mood2anime/staticRoot
       - media-content:/mood2anime/media
-      - ./includes:/mood2anime/templates/includes
+      - ./includes:/mood2anime/templates/includes:ro
   nginx:
     image: nginx
     restart: always
