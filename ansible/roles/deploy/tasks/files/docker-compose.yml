@@ -25,8 +25,4 @@ services:
       - ./nginx/conf.d/:/etc/nginx/conf.d:ro
 volumes:
   static-content:
-    driver_opts:
-      o: 'uid=101,gid=101'
   media-content:
-    driver_opts:
-      o: 'uid=101,gid=101'
