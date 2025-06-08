@@ -18,8 +18,7 @@
   ansible.builtin.template:
     src: "files/metrics.html"
     dest: "./mood2anime2/includes/metrics.html"
-    mode: 0750
-    group: 101
+    mode: 0754
 - name: Create folder mood2anime
   ansible.builtin.file:
     path: "./mood2anime2/nginx/conf.d"
