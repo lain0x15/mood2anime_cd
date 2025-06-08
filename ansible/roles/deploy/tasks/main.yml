@@ -9,3 +9,13 @@
     src: "files/docker-compose.yml"
     dest: "./mood2anime2/docker-compose.yml"
     mode: 0750
+- name: Create folder mood2anime
+  ansible.builtin.file:
+    path: "./mood2anime2/includes"
+    mode: 0750
+    state: directory
+- name: Template docker-compose.yml
+  ansible.builtin.template:
+    src: "files/metrics.html"
+    dest: "./mood2anime2/includes/metrics.html"
+    mode: 0750
