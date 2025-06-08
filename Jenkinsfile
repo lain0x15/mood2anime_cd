@@ -5,7 +5,7 @@ pipeline {
     string(name: 'dns_name_web_site', defaultValue: 'mood2anime.lain0x15.tech', description: 'DNS name for website')
     string(name: 'name_ssh_secret', defaultValue: 'ssh_mood2anime_cd', description: 'ssh secret for vm auth')
     string(name: 'docker_image', defaultValue: 'max0x15/mood2anime:latest', description: 'mood2anime image')
-    text(name: 'git_mood2anime_bd', defaultValue: 'git@github.com:lain0x15/mood2anime_db.git', description: 'Git repo with data for import')
+    string(name: 'git_mood2anime_bd', defaultValue: 'git@github.com:lain0x15/mood2anime_db.git', description: 'Git repo with data for import')
     text(name: 'metrics_html', defaultValue: '', description: 'Enter yandex metric code in base64')
   }
   options {
