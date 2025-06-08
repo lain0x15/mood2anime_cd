@@ -12,7 +12,7 @@
 - name: Create folder mood2anime
   ansible.builtin.file:
     path: "./mood2anime2/includes"
-    mode: 0750
+    mode: 0755
     state: directory
 - name: Template metrics.html
   ansible.builtin.template:
