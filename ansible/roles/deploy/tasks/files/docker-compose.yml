@@ -25,7 +25,7 @@ services:
       - media-content:/mediaRoot:ro
       - ./nginx/conf.d/:/etc/nginx/conf.d:ro
       - certbotwww:/certbot/www
-      - ./mood2anime2/certbotcerts:/certbotCerts
+      - certbotcerts:/certbotCerts
   certbot:
     image: certbot/certbot:latest
     entrypoint:
@@ -35,9 +35,10 @@ services:
       - {{DJANGO_WEBSITE_DNS_NAME}}
     volumes:
       - certbotwww:/certbot/www
-      - ./mood2anime2/certbotcerts:/etc/letsencrypt
+      - certbotcerts:/etc/letsencrypt
       - ./getCert.sh:/getCert.sh:ro
 volumes:
   static-content:
   media-content:
   certbotwww:
+  certbotcerts:
