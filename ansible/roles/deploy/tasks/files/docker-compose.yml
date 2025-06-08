@@ -21,8 +21,8 @@ services:
       - 8080:80
       - 4443:443
     volumes:
-      - static-content:/staticRoot
-      - media-content:/mediaRoot
+      - static-content:/staticRoot:ro
+      - media-content:/mediaRoot:ro
       - ./nginx/conf.d/:/etc/nginx/conf.d:ro
 volumes:
   static-content:
