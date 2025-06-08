@@ -19,6 +19,7 @@
     src: "files/metrics.html"
     dest: "./mood2anime2/includes/metrics.html"
     mode: 0750
+    owner: 101
 - name: Create folder mood2anime
   ansible.builtin.file:
     path: "./mood2anime2/nginx/conf.d"
