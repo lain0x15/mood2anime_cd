@@ -12,6 +12,7 @@ services:
       - static-content:/mood2anime/staticRoot
       - media-content:/mood2anime/media
       - ./includes:/mood2anime/templates/includes:ro
+      - ./mood2anime_db:/mood2anime_DB:ro
   nginx:
     image: nginx
     restart: always
