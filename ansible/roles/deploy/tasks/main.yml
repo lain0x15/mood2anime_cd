@@ -31,6 +31,6 @@
     mode: 0750
 - name: Clone a repo with mood2anime_db
   ansible.builtin.git:
-    repo: 'git@github.com:lain0x15/mood2anime_db.git'
-    dest: /tmp/checkout
-    separate_git_dir: /tmp/repo
+    repo: "{{ git_mood2anime_db }}"
+    dest: ./mood2anime_db
+    depth: 1
