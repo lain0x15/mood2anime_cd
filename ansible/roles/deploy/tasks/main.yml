@@ -35,8 +35,7 @@
     dest: ./mood2anime2/mood2anime_db
     depth: 1
 - name: Create folder mood2anime
-  ansible.builtin.file:
+  ansible.builtin.copy:
     src: "files/getCert.sh"
     dest: "./mood2anime2/getCert.sh"
     mode: 0750
-    state: present
