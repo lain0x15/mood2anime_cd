@@ -44,3 +44,14 @@
     path: "./mood2anime2/certbotcerts"
     mode: 01777
     state: directory
+- name: docker-compose down
+  ansible.builtin.shell:
+    cmd: docker-compose down -v
+    chdir: ./mood2anime2
+- name: docker prune
+  ansible.builtin.shell:
+    cmd: yes | docker container prune -a
+- name: docker-compose up
+  ansible.builtin.shell:
+    cmd: docker-compose up -d
+    chdir: ./mood2anime2
