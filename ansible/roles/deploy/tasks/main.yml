@@ -50,7 +50,7 @@
     chdir: ./mood2anime2
 - name: docker prune
   ansible.builtin.shell:
-    cmd: yes | docker container prune -a
+    cmd: yes | docker container prune
 - name: docker-compose up
   ansible.builtin.shell:
     cmd: docker-compose up -d
